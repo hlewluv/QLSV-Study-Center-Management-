@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLSVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="tentaikhoan" />
+    </Key>
+    <Property Name="tentaikhoan" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="matkhau" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblDiem">
+    <Key>
+      <PropertyRef Name="mamonhoc" />
+      <PropertyRef Name="magiaovien" />
+      <PropertyRef Name="masinhvien" />
+    </Key>
+    <Property Name="nguoitao" Type="varchar" MaxLength="50" />
+    <Property Name="mamonhoc" Type="int" Nullable="false" />
+    <Property Name="magiaovien" Type="int" Nullable="false" />
+    <Property Name="masinhvien" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="diemTX" Type="float" />
+    <Property Name="diemGK" Type="float" />
+    <Property Name="diemCK" Type="float" />
+  </EntityType>
+  <EntityType Name="tblGiaoVien">
+    <Key>
+      <PropertyRef Name="magiaovien" />
+    </Key>
+    <Property Name="magiaovien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tengiaovien" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gioitinh" Type="tinyint" />
+    <Property Name="ngaysinh" Type="date" />
+    <Property Name="dienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblMonHoc">
+    <Key>
+      <PropertyRef Name="mamonhoc" />
+    </Key>
+    <Property Name="nguoitao" Type="varchar" MaxLength="50" />
+    <Property Name="mamonhoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenmonhoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSinhVien">
+    <Key>
+      <PropertyRef Name="masinhvien" />
+    </Key>
+    <Property Name="nguoitao" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="masinhvien" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="tensinhvien" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gioitinh" Type="tinyint" />
+    <Property Name="ngaysinh" Type="date" />
+    <Property Name="dienthoai" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tblDiem_tblGiaoVien">
+    <End Role="tblGiaoVien" Type="Self.tblGiaoVien" Multiplicity="1" />
+    <End Role="tblDiem" Type="Self.tblDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblGiaoVien">
+        <PropertyRef Name="magiaovien" />
+      </Principal>
+      <Dependent Role="tblDiem">
+        <PropertyRef Name="magiaovien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDiem_tblMonHoc">
+    <End Role="tblMonHoc" Type="Self.tblMonHoc" Multiplicity="1" />
+    <End Role="tblDiem" Type="Self.tblDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMonHoc">
+        <PropertyRef Name="mamonhoc" />
+      </Principal>
+      <Dependent Role="tblDiem">
+        <PropertyRef Name="mamonhoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDiem_tblSinhVien">
+    <End Role="tblSinhVien" Type="Self.tblSinhVien" Multiplicity="1" />
+    <End Role="tblDiem" Type="Self.tblDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSinhVien">
+        <PropertyRef Name="masinhvien" />
+      </Principal>
+      <Dependent Role="tblDiem">
+        <PropertyRef Name="masinhvien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLSVModelStoreContainer">
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDiem" EntityType="Self.tblDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblGiaoVien" EntityType="Self.tblGiaoVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMonHoc" EntityType="Self.tblMonHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSinhVien" EntityType="Self.tblSinhVien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblDiem_tblGiaoVien" Association="Self.FK_tblDiem_tblGiaoVien">
+      <End Role="tblGiaoVien" EntitySet="tblGiaoVien" />
+      <End Role="tblDiem" EntitySet="tblDiem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDiem_tblMonHoc" Association="Self.FK_tblDiem_tblMonHoc">
+      <End Role="tblMonHoc" EntitySet="tblMonHoc" />
+      <End Role="tblDiem" EntitySet="tblDiem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDiem_tblSinhVien" Association="Self.FK_tblDiem_tblSinhVien">
+      <End Role="tblSinhVien" EntitySet="tblSinhVien" />
+      <End Role="tblDiem" EntitySet="tblDiem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

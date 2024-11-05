@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLSVModelStoreContainer" CdmEntityContainer="QLSV_Entities">
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="QLSVModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="tentaikhoan" ColumnName="tentaikhoan" />
+          <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDiems">
+      <EntityTypeMapping TypeName="QLSVModel.tblDiem">
+        <MappingFragment StoreEntitySet="tblDiem">
+          <ScalarProperty Name="nguoitao" ColumnName="nguoitao" />
+          <ScalarProperty Name="mamonhoc" ColumnName="mamonhoc" />
+          <ScalarProperty Name="magiaovien" ColumnName="magiaovien" />
+          <ScalarProperty Name="masinhvien" ColumnName="masinhvien" />
+          <ScalarProperty Name="diemTX" ColumnName="diemTX" />
+          <ScalarProperty Name="diemGK" ColumnName="diemGK" />
+          <ScalarProperty Name="diemCK" ColumnName="diemCK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblGiaoViens">
+      <EntityTypeMapping TypeName="QLSVModel.tblGiaoVien">
+        <MappingFragment StoreEntitySet="tblGiaoVien">
+          <ScalarProperty Name="magiaovien" ColumnName="magiaovien" />
+          <ScalarProperty Name="tengiaovien" ColumnName="tengiaovien" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="dienthoai" ColumnName="dienthoai" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMonHocs">
+      <EntityTypeMapping TypeName="QLSVModel.tblMonHoc">
+        <MappingFragment StoreEntitySet="tblMonHoc">
+          <ScalarProperty Name="nguoitao" ColumnName="nguoitao" />
+          <ScalarProperty Name="mamonhoc" ColumnName="mamonhoc" />
+          <ScalarProperty Name="tenmonhoc" ColumnName="tenmonhoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSinhViens">
+      <EntityTypeMapping TypeName="QLSVModel.tblSinhVien">
+        <MappingFragment StoreEntitySet="tblSinhVien">
+          <ScalarProperty Name="nguoitao" ColumnName="nguoitao" />
+          <ScalarProperty Name="masinhvien" ColumnName="masinhvien" />
+          <ScalarProperty Name="tensinhvien" ColumnName="tensinhvien" />
+          <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+          <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
+          <ScalarProperty Name="dienthoai" ColumnName="dienthoai" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
